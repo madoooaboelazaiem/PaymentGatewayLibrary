@@ -15,5 +15,8 @@ const config = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
   mongoString: process.env.MONGO_STRING,
+  paypalClientId: process.env.PAYPAL_CLIENT_ID,
+  paypalClientSecret: process.env.PAYPAL_CLIENT_SECRET,
+  host: process.env.HOST,
 };
 module.exports = { config };
