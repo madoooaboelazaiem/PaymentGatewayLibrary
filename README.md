@@ -8,7 +8,7 @@ folder structure is inspired by https://softwareontheroad.com/ideal-nodejs-proje
 
 ### Prerequisites
 
-in order to install this repo you need to make sure you have git, node installed on your machine
+in order to install this repo you need to make sure you have git, node installed on your machine along with nodemon and the dependencies
 
 ### Installing
 
