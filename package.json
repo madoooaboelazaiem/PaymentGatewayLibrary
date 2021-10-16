@@ -21,7 +21,8 @@
     "mongoose": "^5.12.12",
     "morgan": "^1.10.0",
     "swagger-jsdoc": "^6.1.0",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.2"
   },
   "repository": {
     "type": "git",

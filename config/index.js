@@ -18,5 +18,6 @@ const config = {
   paypalClientId: process.env.PAYPAL_CLIENT_ID,
   paypalClientSecret: process.env.PAYPAL_CLIENT_SECRET,
   host: process.env.HOST,
+  swaggerHost: process.env.SWAGGER_HOST,
 };
 module.exports = { config };

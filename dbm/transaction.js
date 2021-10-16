@@ -1,12 +1,20 @@
 const { TransactionModel } = require('../models/transaction');
 
-const createTransaction = async ({ fullname, price, orderId, currency }) => {
+const createTransaction = async ({
+  fullname,
+  price,
+  orderId,
+  orderStatus,
+  currency,
+  response,
+}) => {
   return await TransactionModel.create({
     fullname,
     price,
     orderId,
     currency,
-    orderStatus: 'READY_FOR_PAYMENT',
+    orderStatus: orderStatus,
+    response,
   });
 };
 

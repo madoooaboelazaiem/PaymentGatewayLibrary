@@ -114,9 +114,7 @@
           <script defer src="https://www.paypal.com/sdk/js?client-id=AdePZZ8yYqL-gGqWC1NM-nWbdhyOo7uK0oU_SqAurJW72eScEJFHJdVSMDCVu2wMTwGoqJ2JalPUwrX2"></script>
     <script>
       var currencyObject = [
-        "USD",
-        "EUR","THB","HKD","SGD","AUD"
-         
+        "USD","EUR","THB","HKD","SGD","AUD"
     ]
       window.onload = function() {
         var currencytSel = document.getElementById("currency");
@@ -132,7 +130,7 @@
     <div class="row">
       <div class="col-75">
         <div class="container">
-          <form action="http://localhost:3000/paymentRequest" method="post">
+          <form action="http://localhost:3000/api/transaction/paymentRequest" method="post">
             <div class="col-50">
               <h3>Payment</h3>
               <label for="price">Price(Amount)</label>
@@ -157,30 +155,19 @@
                   <i class="fa fa-cc-discover" style="color: orange"></i>
                 </div>
                 <label for="ccnum">Credit card number</label>
+                <h5>Valid Card Number: 4032038989676386</h5>
                 <input required
                   type="text"
                   id="ccnum"
                   name="cardnumber"
-                  placeholder="1111-2222-3333-4444"
+                  placeholder="4032038989676386"
                 />
                 <br></br>    
-                <label for="expmonth">Exp Month</label>
-                <input required
-                  type="text"
-                  id="expmonth"
-                  name="expmonth"
-                  placeholder="10"
-                />
+                <label for="expyear">Exp Date</label>
+                <h5>Valid Date: 2026-11</h5>
+                <input required type="month" id="expdate" name="expdate" min="2022-01" value="2026-11">
+                <br></br>    
                 <div class="row">
-                  <div class="col-50">
-                    <label for="expyear">Exp Year</label>
-                    <input required
-                      type="text"
-                      id="expyear"
-                      name="expyear"
-                      placeholder="2018"
-                    />
-                  </div>
                   <div class="col-50">
                     <label for="cvv">CVV</label>
                     <input required type="text" id="cvv" name="cvv" placeholder="352" />

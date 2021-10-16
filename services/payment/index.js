@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
 const { createOrderRequest, captureOrder } = require('./paypal');
 const creditPayment = async ({ request }) => {
-  let { price, fullname, currency, cardnumber, expmonth, expyear, cvv } =
-    request.body;
+  let { price, fullname, currency, cardnumber, expdate, cvv } = request.body;
   const validateInputs =
     price &&
     fullname &&
@@ -10,8 +9,7 @@ const creditPayment = async ({ request }) => {
     currency &&
     currency.length !== 0 &&
     cardnumber &&
-    expmonth &&
-    expyear &&
+    expdate &&
     cvv;
 
   if (!validateInputs) {
@@ -21,16 +19,15 @@ const creditPayment = async ({ request }) => {
     };
   }
 
-  const getOrderId = await createOrderRequest({
+  const getOrderAndPay = await createOrderRequest({
     currency,
     price,
     fullname,
     cardnumber,
-    expmonth,
-    expyear,
+    expdate,
     cvv,
   });
-  if (!getOrderId || !getOrderId.result.id) {
+  if (!getOrderAndPay || getOrderAndPay.statusCode != '201') {
     return {
       success: false,
       status: 'ERROR_OCCURRED',
@@ -38,8 +35,7 @@ const creditPayment = async ({ request }) => {
   } else {
     return {
       success: true,
-      status: 'READY_FOR_PAYMENT',
-      link: getOrderId.link,
+      status: 'PAID_SUCCESSFULLY',
     };
   }
 };
