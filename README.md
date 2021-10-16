@@ -47,7 +47,7 @@ run the app and go to: http://localhost:3000/api-docs/
 
 1. Add your name, price, currency and credit card information (Note: only valid card with valid expiry date would result in a successfull payment)
 2. Check the payment transaction on https://www.sandbox.paypal.com/mep/dashboard using the following email and password:
-   **Email**: https://www.sandbox.paypal.com/mep/dashboard
+   **Email**: sb-vnuio6885174@business.example.com
    **Password**: 12345678
 
 ## To run tests:
