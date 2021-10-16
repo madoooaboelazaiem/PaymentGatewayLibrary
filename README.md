@@ -4,7 +4,7 @@ This repo contains the Payment Gateway Library built with node, express and mong
 
 ## Getting Started
 
-folder structure is inspired by https://softwareontheroad.com/ideal-nodejs-project-structure/ with some modifications like adding controllers folder
+folder structure is inspired by https://softwareontheroad.com/ideal-nodejs-project-structure/ with some modifications like adding controllers and dbm folder
 
 ### Prerequisites
 
@@ -63,4 +63,4 @@ run the app and go to: http://localhost:3000/api-docs/
 
 ## Authors
 
-- **Mado**
+- **Mohamed Salama**
