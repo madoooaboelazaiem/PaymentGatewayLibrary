@@ -50,6 +50,10 @@ run the app and go to: http://localhost:3000/api-docs/
    **Email**: https://www.sandbox.paypal.com/mep/dashboard
    **Password**: 12345678
 
+## To run tests:
+
+`npm run test`
+
 ## Built With
 
 - [Express](https://expressjs.com/) - The web framework used
