@@ -2,23 +2,36 @@
 const { createOrderRequest, captureOrder } = require('./paypal');
 const creditPayment = async ({ request }) => {
   let { price, fullname, currency, cardnumber, expdate, cvv } = request.body;
+  const usedCurrencies = ['USD', 'EUR', 'THB', 'HKD', 'SGD', 'AUD'];
   const validateInputs =
     price &&
     fullname &&
     fullname.length !== 0 &&
-    currency &&
-    currency.length !== 0 &&
     cardnumber &&
     expdate &&
-    cvv;
-
+    cvv &&
+    currency &&
+    currency.length !== 0;
+  const validateCurrency = usedCurrencies.includes(currency);
+  const checkCardExpiration = new Date(expdate) >= new Date('2026-11');
   if (!validateInputs) {
     return {
       success: false,
       status: 'INVALID_INPUTS',
     };
   }
-
+  if (!validateCurrency) {
+    return {
+      success: false,
+      status: 'WRONG_CURRENCY',
+    };
+  }
+  if (!checkCardExpiration) {
+    return {
+      success: false,
+      status: 'CARD_EXPIRED',
+    };
+  }
   const getOrderAndPay = await createOrderRequest({
     currency,
     price,

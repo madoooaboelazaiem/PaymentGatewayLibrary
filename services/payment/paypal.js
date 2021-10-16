@@ -10,7 +10,7 @@ const {
 // Creating an environment
 let clientId = config.paypalClientId;
 let clientSecret = config.paypalClientSecret;
-// This sample uses SandboxEnvironment. In production, use LiveEnvironment
+
 let environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 let client = new paypal.core.PayPalHttpClient(environment);
 
@@ -146,8 +146,7 @@ let captureOrder = async function ({ req, orderId }) {
       let message = `\t${rel}: ${href}\tCall Type: ${method}`;
       console.log(message);
     });
-    // To toggle print the whole body comment/uncomment the below line
-    //   console.log(JSON.stringify(response.result, null, 4));
+
     if (response.statusCode == 201) {
       updateTransaction({
         orderId: response.result.id,
